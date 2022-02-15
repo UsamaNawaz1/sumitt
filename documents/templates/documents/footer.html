@@ -1,0 +1,36 @@
+{% load static %}
+<footer class="footer">
+    <div class="fix-width">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-3"><img src="{% static 'new_home/favicon.png' %}" class="site_logo" /> <span
+                    style="color: rgb(134, 123, 123);">Summit</span>
+                <p class="m-t-30">
+                    READ MORE IN LESS TIME
+                </p>
+            </div>
+            <div class="col-md-3 ">
+                <!-- <ul class="footer-link list-icons">
+                    <li><a href="#"><i class="ti-angle-right text-megna"></i> Lorem ipsum </a></li>
+                    <li><a href="#"><i class="ti-angle-right text-megna"></i> Lorem ipsum </a></li>
+                    <li><a href="#"><i class="ti-angle-right text-megna"></i> Lorem ipsum </a></li>
+                    <li><a href="#"><i class="ti-angle-right text-megna"></i> Lorem ipsum </a></li>
+                    <li><a href="#"><i class="ti-angle-right text-megna"></i> Lorem ipsum </a></li>
+                </ul> -->
+            </div>
+            <div class="col-md-3 ">
+                <ul class="footer-link list-icons">
+                    <li><a href="{% url 'terms' %}"></i> Terms and Conditions</a></li>
+                    <li><a href="{% url 'policy' %}"></i> Privacy Policy</a></li>
+                    <li><a href="#"></i> Contact us</a></li>
+
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-md-12 sub-footer">
+                <span>Copyright {% now "Y" %}. All Rights Reserved. Powered by <a class="text-white"
+                        href="https://cybernek.com" target="_blank">Cybernek Solutions</a></span>
+            </div>
+        </div>
+    </div>
+</footer>

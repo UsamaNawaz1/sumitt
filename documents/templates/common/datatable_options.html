@@ -1,0 +1,98 @@
+<script>
+
+    var {{ specific_id }}_table;
+
+    jQuery(document).ready(function () {
+
+        if (!$.fn.DataTable.isDataTable("#{{ specific_id }}")) {
+
+            {{ specific_id }}_table = $("#{{ specific_id }}").DataTable({
+                // dom: 'Blfrtip',
+                //"responsive": true,
+                {% if ajax_table and ajax_table == true %}
+                "processing": true,
+                "serverSide": true,
+                "ajax": {
+                    'url': "{{ajax_url}}",
+                    'data': function(data) {
+                            
+                        // if ($('#filter_options').length > 0) {
+                                // data.filter_options = $('#filter_options').val();
+                        // }
+
+                    },
+                    "dataSrc": function(json) {
+
+                            // $('#navbalance').html(json.available);
+                            // $('#navonorder').html(json.onorder);
+                            //Make your callback here.
+                            return json.data;
+                    }
+                },
+                // "ajax": "{{ ajax_url }}",
+                {% endif %}
+                {% if ordering and ordering == False %}
+                "ordering": false,
+                {% endif %}
+                {% if searching and searching == False %}
+                "searching": false,
+                {% endif %}
+                {% if paging and paging == False %}
+                // dom: "<'row'<'col-4'irt><'col-4'B><'col-4'f>>t<'row'<'col-6'><'col-6'>>",
+                dom: "<'row'<'col-md-4'><'col-md-4'B><'col-md-4'f>>rt<'row'<'col-md-6'><'col-md-6'>>",
+                {% else %}
+                dom: "<'row'<'col-md-3'lt><'col-md-6'B><'col-md-3'f>>rt<'row'<'col-md-6'i><'col-md-6'p>>",
+                {% endif %}
+                "pagingType": "full_numbers",
+                "paging": true,
+                "lengthMenu": [10, 25, 50, 75, 100],
+                {% if export and export == False %}
+                buttons: [],
+                {% else %}
+                buttons: [
+                    // 'copy', 'csv', 'print'
+                    'copy', 'csv', 'pdf', 'print'
+                    // 'copy', 'csv', 'excel', 'pdf', 'print'
+                ],
+                {% endif %}
+                {% comment %} <?php if (isset($ajaxify) && $ajaxify == true): ?> {% endcomment %}
+                // "processing": true,
+                //"serverSide": true,
+                //"ajax": "<?=$this->Url->build('/', true);?>admin/orders/ajax",
+                //"ajax": {
+                //  "url": "<?=$this->Url->build('/', true);?>admin/orders/ajax", // ajax source
+                //},
+                {% comment %} <?php endif;?> {% endcomment %}
+                "language": {
+                    "emptyTable": "Not {{ record_name }} available at the moment",
+                    "decimal": "",
+                    "info": "Showing _START_ to _END_ of _TOTAL_ {{ record_name }}",
+                    "infoEmpty": "Showing 0 to 0 of 0 {{ record_name }}",
+                    "infoFiltered": "(filtered from _MAX_ total {{ record_name }})",
+                    "infoPostFix": "",
+                    "thousands": ",",
+                    "lengthMenu": "Show _MENU_ {{ record_name }}",
+                    "loadingRecords": "Loading...",
+                    "processing": "Processing...",
+                    "search": "Search:",
+                    "zeroRecords": "No matching {{ record_name }} records found",
+                }
+            });
+            $('.buttons-copy, .buttons-csv, .buttons-print, .buttons-pdf, .buttons-excel').addClass(
+                'btn btn-outline-primary mr-1');
+
+
+
+            {% comment %} <?php if (isset($autoreload) && $autoreload == true): ?> {% endcomment %}
+            // setInterval(function () {
+            //     table.ajax.reload(null, false);
+            // }, 15000);
+
+            {% comment %} <?php endif;?> {% endcomment %}
+        }
+
+
+
+    });
+
+</script>

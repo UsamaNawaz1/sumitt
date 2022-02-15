@@ -1,0 +1,95 @@
+{% extends 'documents/backend.html' %}
+{% load static %}
+
+{% block title %}Summary{% endblock %}>
+{% block content %}
+
+<!-- ============================================================== -->
+<!-- Bread crumb and right sidebar toggle -->
+<!-- ============================================================== -->
+<div class="row page-titles mb-0">
+    <div class="col-md-5 align-self-center">
+        <h4 class="text-themecolor">Summary of {{document.name}}</h4>
+    </div>
+    <div class="col-md-7 align-self-center text-right">
+        <div class="d-flex justify-content-end align-items-center">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                <li class="breadcrumb-item active">Summary</li>
+            </ol>
+            <a href="{% url 'document_add' %}" class="btn btn-danger d-none d-lg-block m-l-15"><i
+                    class="fa fa-plus-circle"></i> Create New</a>
+        </div>
+    </div>
+</div>
+<!-- Row -->
+<div class="row">
+    <div class="col-12 m-t-30">
+        <div class="row">
+            <div class="col-6">
+                <p class="text-muted m-t-0 font-12">{{document.description}} </p>
+
+            </div>
+            <div class="col-6">
+                <div class="form-group row mb-1">
+                    <label class="control-label text-right col-md-6 mt-1">Sentences</label>
+                    <div class="col-md-6">
+                        <form action="" id="sentences_form">
+                            <div class="input-group ">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon2"><i
+                                            class="fa fa-paragraph"></i></span>
+                                </div>
+                                <input type="number" min="1" , max="50" class="form-control" id="sentences"
+                                    placeholder="Sentences" value="{{sentences}}" required>
+                                <a href="{% url 'summarize' document_id=document.id  %}"
+                                    class="btn btn-dark d-none d-lg-block m-l-15" id="gobtn"><i class="fa fa-list"></i>
+                                    Go</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <h4 class="m-b-0">{{number_of_pages}} Pages</h4> -->
+        <!-- Card -->
+        <div class="card text-center">
+            <div class="card-header">
+                Summary
+            </div>
+            <div class="card-body">
+                <!-- <h4 class="card-title">Special title treatment</h4> -->
+                <p class="card-text text-justify">{{summary}}</p>
+                <!-- <a href="javascript:void(0)" class="btn btn-info">Go somewhere</a> -->
+            </div>
+            {% if number_of_pages %}
+            <div class="card-footer text-muted">
+                Pages Scanned: {{number_of_pages}}
+            </div>
+            {% endif %}
+        </div>
+        <!-- Card -->
+    </div>
+</div>
+<!-- End Row -->
+<script>
+    function go() {
+        var url = "{% url 'summarize' document_id=document.id  %}";
+        var sentences = $('#sentences').val();
+        window.location.href = url + (sentences ? '/' + sentences : '');
+    }
+
+    $(document).ready(function () {
+
+        $("#gobtn").click(function (event) {
+            event.preventDefault();
+            go();
+        });
+
+        $("#sentences_form").submit(function (event) {
+            event.preventDefault();
+            go();
+        });
+    });
+</script>
+{% endblock %}

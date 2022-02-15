@@ -1,0 +1,65 @@
+<!-- <div class="col-md-12 light-blue-bg"> -->
+<div class="col-md-12">
+    <div class="text-center mt-40">
+        <h2 class="text-title">Pricing</h2>
+        <p>Simple and flexible pricing model</p>
+    </div>
+    <div class="container">
+        <div class="card-deck mb-3 text-center">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">Basic</h4>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title pricing-card-title">$0 CAD </h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <!-- <li>10 users included</li> -->
+                        <li>2 GB of storage</li>
+                        <li>Email support</li>
+                        <li>Help center access</li>
+                    </ul>
+                    <a href="{% url 'register' %}" class="btn btn-lg btn-block btn-outline-primary">Sign up
+                        for free</a>
+                </div>
+            </div>
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">{{ plan1.title}}</h4>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title pricing-card-title">${{ plan1.price|floatformat:2}} CAD<small
+                            class="text-muted">/
+                            month</small></h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <!-- <li>20 users included</li> -->
+                        <li>10 GB of storage</li>
+                        <li>Priority email support</li>
+                        <li>Help center access</li>
+                    </ul>
+                    <a href="{% url 'checkout' %}?plan={{ plan1.id }}"
+                        class="btn btn-lg btn-block btn-primary">Subscribe Now</a>
+                </div>
+            </div>
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">{{ plan2.title}}
+                        <!-- <span style="color: blue;font-size: .7em;">Save ${{ difference|floatformat:2}}!</span> -->
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title pricing-card-title">${{ plan2.price|floatformat:2}} CAD<small
+                            class="text-muted">/
+                            year</small></h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <!-- <li>30 users included</li> -->
+                        <li>15 GB of storage</li>
+                        <li>Phone and email support</li>
+                        <li>Help center access</li>
+                    </ul>
+                    <a href="{% url 'checkout' %}?plan={{ plan2.id }}"
+                        class="btn btn-lg btn-block btn-primary">Subscribe Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

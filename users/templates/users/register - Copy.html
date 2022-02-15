@@ -1,0 +1,85 @@
+{% extends 'documents/base.html' %}
+{% load static %}
+{% block title %}Register{% endblock %}>
+{% block content %}
+
+<nav class="navbar navbar-expand-md navbar-light fixed-top bg-dark p-3">
+	{% include "documents/navbar_logo.html" %}
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+		aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarCollapse">
+		<ul class="navbar-nav ml-auto pr-5">
+			<li class="nav-item">
+				<a class="nav-link remote_link" href="{% url 'home' %}">Home</a>
+			</li>
+
+			<li class="nav-item">
+				<a class="nav-link remote_link" href="{% url 'login' %}">Login</a>
+			</li>
+			<li class="nav-item active">
+				<a class="nav-link remote_link" href="{% url 'register' %}">Register</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+
+<section class="features py-10" id="features">
+	<div class="container">
+		<h3 class="text-center black headline">Register</h3>
+		{% comment %} <p class="text-center mt-4">Lorem Ipsum is simply dummy text of the printing and typesetting
+			{% endcomment %}
+			{% comment %} <br> industry Lorem Ipsum has been the industry's standard dummy text ever since.</p>
+		{% endcomment %}
+		<br>
+		<br>
+		<div class="col-12">
+			{% include "common/flash.html" %}
+
+			<div class="row">
+				{% comment %} <h2 class="text-center">Login</h2> {% endcomment %}
+
+				<div class="col-md-6 offset-md-3">
+					<form method="POST" action="{% url 'register' %}">
+						{% csrf_token %}
+
+						{% if form.errors %}
+						<div class="alert alert-warning alert-dismissable" role="alert">
+							<button class="close" data-dismiss="alert">
+								<small><sup>x</sup></small>
+							</button>
+							<p>Your Form Has Errors...</p>
+							{% for field in form %}
+							{% if field.errors  %}
+							{{ field.errors }}
+							{% endif %}
+
+							{% endfor %}
+
+						</div>
+
+
+						{% endif %}
+
+
+						{{ form.as_p }}
+
+						<input type="submit" value="Register" class="btn btn-secondary">
+					</form>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+</section>
+<br>
+<br>
+<br>
+
+
+
+{% endblock %}
+

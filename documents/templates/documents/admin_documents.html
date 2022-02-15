@@ -1,0 +1,52 @@
+{% extends 'documents/backend.html' %}
+{% load static %}
+
+{% block title %}Documents{% endblock %}>
+{% block content %}
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h4 class="text-themecolor">All Documents</h4>
+        {% comment %} calling .url without checking if object is None throws an exception {% endcomment %}
+        {% comment %}
+        <pre>
+            {{document.file.url}}
+        </pre> {% endcomment %}
+    </div>
+    <div class="col-md-7 align-self-center text-right">
+        <div class="d-flex justify-content-end align-items-center">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                <li class="breadcrumb-item active">All Documents</li>
+            </ol>
+            <a href="{% url 'document_add' %}" class="btn btn-danger d-none d-lg-block m-l-15"><i
+                    class="fa fa-plus-circle"></i> Create New</a>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================== -->
+<!-- End Bread crumb and right sidebar toggle -->
+<!-- ============================================================== -->
+{% include "common/flash.html" %}
+<!-- ============================================================== -->
+<!-- Info box -->
+<!-- ============================================================== -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                {% comment %} <h4 class="card-title">Documents</h4> {% endcomment %}
+                <!-- <h6 class="card-subtitle">Export data to Copy, CSV, Excel, PDF & Print</h6> -->
+                {% include "common/document_table.html" with showUser=True  %}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- End Info box -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- Sales Chart and browser state-->
+<!-- ============================================================== -->
+<!-- {% include "common/datatable_options.html" with record_name="documents" specific_id="documents" record_count=campaigns.count  %} -->
+{% endblock %}

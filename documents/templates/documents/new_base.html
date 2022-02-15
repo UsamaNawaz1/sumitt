@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% load static %}
+{% comment %} {% load staticfiles %} {% endcomment %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'new_home/favicon.png' %}">
+    <title>Sumitt</title>
+    <!-- This page CSS -->
+    <link href="{% static 'new_home/owl.carousel/owl.carousel.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'new_home/owl.carousel/owl.theme.default.css' %}" rel="stylesheet" type="text/css" />
+    <!-- Custom CSS -->
+    <link href="{% static 'new_home/dist/css/style.min.css' %}" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js' %}" IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js' %}" doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js' %}""></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js' %}"/1.4.2/respond.min.js' %}""></script>
+    {% include "common/custom_css.html" %}
+<![endif]-->
+    {% include "common/custom_css.html" %}
+</head>
+
+<body>
+    <div id="main-wrapper">
+        <div class="container-fluid" style="background-image: url({% static 'new_home/images/Layer_6_copy.png' %});background-repeat: no-repeat; background-position: right; background-size: 1000px 900px">
+
+            {% block content %}
+
+            {% endblock %}
+
+        </div>
+    </div>
+</body>
+<!-- ============================================================== -->
+<!-- All Jquery -->
+<!-- ============================================================== -->
+<script src="{% static 'new_home/jquery/jquery-3.2.1.min.js' %}""></script>
+<!-- Bootstrap popper Core JavaScript -->
+<script src=" {% static 'new_home/popper/popper.min.js' %}""></script>
+<script src="{% static 'new_home/bootstrap/dist/js/bootstrap.min.js' %}""></script>
+<script src=" {% static 'new_home/owl.carousel/owl.carousel.js' %}""></script>
+<!-- jQuery for typing -->
+<script src="{% static 'new_home/typed.js-master/dist/typed.min.js' %}""></script>
+<script src=" {% static 'new_home/dist/js/custom.js' %}""></script>
+<script>
+    $(function () {
+        $(".banner-title").typed({
+            strings: [
+                "Ultimate AI Text Summarizer",
+            ],
+            typeSpeed: 100,
+            loop: true
+        });
+    });
+
+    $(function () {
+		$(".preloader").fadeOut();
+	});
+	$(function () {
+		$('[data-toggle="tooltip"]').tooltip()
+	});
+	// ============================================================== 
+	// Login and Recover Password 
+	// ============================================================== 
+	$('#to-recover').on("click", function () {
+		$("#loginform").slideUp();
+		$("#recoverform").fadeIn();
+	});
+</script>
+
+</html>

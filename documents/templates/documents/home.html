@@ -1,0 +1,264 @@
+{% load static %}
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumitt</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&family=Ubuntu&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'new/css/main.css' %}">
+</head>
+
+<body>
+
+    <div class="bg-1">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <div class="d-flex w-100 justify-content-around">
+                    <a class="navbar-brand" href="#">
+                        <img src="{% static 'new/img/logo-lg.png' %}" />
+                    </a>
+                    <div class="navbar-nav ml-auto py-2">
+                        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link" href="#tempfeatures">Features</a>
+                        <a class="nav-item nav-link" href="#temppricing">Pricing</a>
+                        <div class="nav-item ml-4" href="#">
+                            <a href="{% url 'register' %}" class="btn btn-primary px-4">sign up</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="banner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-6">
+                        <h1>
+                            <div class="text-primary">LOTS TO READ?</div>
+                            <div class="text-white">LET US HELP.</div>
+                        </h1>
+
+                        <div class="description">
+                            <div class="line1">Create quick & accurate summaries with Sumitt,</div>
+                            <div class="line2">your AI-powered online summarization tool </div>
+                        </div>
+
+                        <div>
+                            <a href="{% url 'register' %}" class="btn btn-primary px-4">sign up</a>
+                        </div>
+                    </div>
+                    <div class="col-6 position-relative">
+                        <img src="{% static 'new/img/banner-bg.png' %}" class="head-bg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="section2" >
+        <div class="container">
+            <h1 class="text-center">Who Can Benefit from <span class="text-white">Sumitt</span>?</h1>
+            <div class="row">
+                <div class="col-6">
+                    <div class="list-benefit pr-5">
+                        <div class="list-item d-flex">
+                            <div class="list-icon">
+                                <img src="{% static 'new/img/tick.svg' %}" />
+                            </div>
+                            <div class="list-description flex-fill">
+                                <h4 class="list-title">Student</h4>
+                                <p class="text-white">
+                                    Are you behind on your weekly readings? Use Sumitt to reduce your stress and get back on track.
+                                    <br />
+                                    Have a big paper coming up? Use Sumitt to sift through all the resources you want twice as fast.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="list-item d-flex">
+                            <div class="list-icon">
+                                <img src="{% static 'new/img/tick.svg' %}" />
+                            </div>
+                            <div class="list-description flex-fill">
+                                <div class="list-title">Professionals</div>
+                                <p class="text-white">
+                                    Need help going through content for that report?
+                                    <br />
+                                    We've got your back!
+                                </p>
+                            </div>
+                        </div>
+                        <div class="list-item d-flex">
+                            <div class="list-icon">
+                                <img src="{% static 'new/img/tick.svg' %}" />
+                            </div>
+                            <div class="list-description flex-fill">
+                                <div class="list-title">Anyone that reads...</div>
+                                <p class="text-white">
+                                    Whatever you're reading, Sumitt is there to help you get through it.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 position-relative">
+                    <img src="{% static 'video/how_it_works.gif' %}" class="img-benefit w-100"/>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="section3 position-relative">
+        <img src="{% static 'video/intro2.gif' %}" class="bg-video" />
+        <div style="background-image: url(./img/banner-bg.png)" class="bg-video-banner"></div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-6 offset-6 content">
+                    <h1>How it <span class="text-primary">works</span></h1>
+                    <ol>
+                        <li>Upload your document </li>
+                        <li>Choose how long you want your summary to be</li>
+                        <li>Hit submit & read!</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section4 position-relative py-5" id="tempfeatures">
+        <div class="container">
+            <div class="row">
+                <div class="col-5">
+                    <h1 class="mt-5">What <br> Makes Us <br> <span class="text-secondary">Unique?</span> </h1>
+                </div>
+                <div class="col-7">
+                    <ul class="list-unstyled list-unique">
+                        <li>
+                            <div class="d-flex w-100">
+                                <div class="px-3">
+                                    <img src="{% static 'new/img/icon1.png' %}" class="img-icon" />
+                                </div>
+                                <div>
+                                    <h4 class="font-weight-light mb-3">Quick</h4>
+                                    <p class="text-muted">We know how valuable your time is, so we work super hard to make sure we can give you the fastest possible results</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="d-flex w-100">
+                                <div class="px-3">
+                                    <img src="{% static 'new/img/icon1.png' %}" class="img-icon" />
+                                </div>
+                                <div>
+                                    <h4 class="font-weight-light mb-3">User-Friendly</h4>
+                                    <p class="text-muted">Sumitt brings you high-tech solutions in the simplest way to maximize your productivity</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section5 py-5 bg-blue">
+        <div class="container position-relative">
+            <div class="bg-logo" style="background-image: url(./img/bg-logo.png);"></div>
+            <h1 class="mt-4 text-center text-white">Frequently Asked <span class="text-secondary">Questions?</span></h1>
+            <div class="row pb-5 mt-7">
+                <div class="col-6 offset-3">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <a href="#faq1" class="nav-link bg-primary" data-toggle="collapse">
+                                <div class="collapse-icon"></div>
+                                How does Sumitt summarize ANY document?
+                            </a>
+                            <div id="faq1" class="collapse show nav-content">
+                                Sumitt produces summary by interpreting the document you upload with advanced natural language processing techniques to generate a shorter text.
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#faq2" class="nav-link bg-primary collapsed" data-toggle="collapse">
+                                <div class="collapse-icon"></div>
+                                Can I summarize some pages of an entire document?
+                            </a>
+                            <div id="faq2" class="collapse nav-content">
+                                Sumitt produces summary by interpreting the document you upload with advanced natural language processing techniques to generate a shorter text.
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#faq3" class="nav-link bg-primary collapsed" data-toggle="collapse">
+                                <div class="collapse-icon"></div>
+                                How short is the summary produced by Sumitt?
+                            </a>
+                            <div id="faq3" class="collapse nav-content">
+                                Sumitt produces summary by interpreting the document you upload with advanced natural language processing techniques to generate a shorter text.
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#faq4" class="nav-link bg-primary collapsed" data-toggle="collapse">
+                                <div class="collapse-icon"></div>
+                                Can I save my document summaries in my Sumitt account?
+                            </a>
+                            <div id="faq4" class="collapse nav-content">
+                                Sumitt produces summary by interpreting the document you upload with advanced natural language processing techniques to generate a shorter text.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer py-4 bg-blue text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <img src="{% static 'new/img/logo-lg.png' %}" class="footer-logo" />
+                </div>
+                <div class="col-3">
+                    <h6 class="text-primary mb-3">Home</h6>
+                    <ul class="list-unstyled footer-menu">
+                        <li><a href="#">How it works</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Plan</a></li>
+                        <li><a href="#">Career</a></li>
+                    </ul>
+                </div>
+                <div class="col-3 justify-content-end">
+                    <div class="d-inline-block">
+                        <h6 class="text-primary text-right mb-3">Contact</h6>
+                        <div class="text-white">
+                            <div> +880 01717 383 11</div>
+                            <div> mail@summarizer.com</div>
+                        </div>
+                        <div class="mt-4">
+                            <a href="#" class="icon-social icon-facebook"></a>
+                            <a href="#" class="icon-social icon-linkedin"></a>
+                            <a href="#" class="icon-social icon-instagram"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="{% static 'new/js/site.js' %}">
+</body>
+
+</html>

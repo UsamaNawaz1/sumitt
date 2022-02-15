@@ -1,0 +1,70 @@
+{% load tz %}
+
+<div class="table-responsive m-t-40">
+    <table id="documents" class="display table table-hover table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>S/N</th>
+                {% if showUser %}
+                <th>User</th>
+                {% endif %}
+                <th>Name</th>
+                <th>Description</th>
+                <th>Created</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for document in documents.all %}
+            <tr>
+                <td>
+                    {{ forloop.counter }}
+                </td>
+                {% if showUser %}
+                <td>
+                    {{ document.user.first_name }}
+                </td>
+                {% endif %}
+                <td>
+                    <a href="{{ document.file.url }} ">{{ document.name }} </a>
+                </td>
+                <td>
+                    {{ document.description }}
+                </td>
+                <td>
+                    {{ document.created|timezone:"America/Toronto" }}
+                </td>
+                <td>
+                    <a href="{% url 'summarize' document_id=document.id sentences=document.max_sentences %}"
+                        title="Summarize" onclick="return confirm('Confirm?')" class="btn btn-dark btn-sm">GO</a>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-dark btn-sm dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-ellipsis-h"></i> 
+                        </button>
+                        <div class="dropdown-menu" x-placement="top-start"
+                            style="position: absolute; transform: translate3d(0px, -203px, 0px); top: 0px; left: 0px; will-change: transform;">
+                            <a class="dropdown-item" href="{{ document.file.url }}"><i class="fa fa-search"></i>
+                                &nbsp;Preview</a>
+                            <a class="dropdown-item" href="{% url 'document_edit' document_id=document.id %}"><i class="fa fa-edit"></i>&nbsp;Edit</a>
+                            <a class="dropdown-item" href="{% url 'document_delete' document_id=document.id %}"
+                                onclick="return confirm('Sure to delete?')"><i
+                                class="fa fa-trash"></i>&nbsp;Delete</a>
+                        </div>
+                    </div>
+
+                    <!-- <a href="{{ document.file.url }}" title="Preview" class="btn btn-info btn-sm"><i
+                            class="fa fa-search"></i></a>
+                    <a href="{% url 'document_edit' document_id=document.id %}" title="Summarize"
+                        class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
+                    <a href="{% url 'document_delete' document_id=document.id %}" title="Delete"
+                        onclick="return confirm('Sure to delete?')" class="btn btn-danger btn-sm"><i
+                            class="fa fa-trash"></i></a> -->
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% include "common/datatable_options.html" with record_name="documents" specific_id="documents" record_count=user_documents.count  %}

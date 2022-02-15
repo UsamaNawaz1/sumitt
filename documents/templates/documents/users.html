@@ -1,0 +1,90 @@
+{% extends 'documents/backend.html' %}
+{% load static %}
+
+{% block title %}Documents{% endblock %}>
+{% block content %}
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h4 class="text-themecolor">Users</h4>
+    </div>
+    <div class="col-md-7 align-self-center text-right">
+        <div class="d-flex justify-content-end align-items-center">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                <li class="breadcrumb-item active">Users</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================== -->
+<!-- End Bread crumb and right sidebar toggle -->
+<!-- ============================================================== -->
+{% include "common/flash.html" %}
+<!-- ============================================================== -->
+<!-- Info box -->
+<!-- ============================================================== -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <!-- <h4 class="card-title">Documents</h4> -->
+                <!-- <h6 class="card-subtitle">Export data to Copy, CSV, Excel, PDF & Print</h6> -->
+                <div class="table-responsive m-t-40">
+                    <table id="users_table" class="display nowrap table table-hover table-striped table-bordered"
+                        cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>S/N</th>
+                                <th>Name</th>
+                                <th>Documents</th>
+                                <th>Created</th>
+                                <!-- <th>Actions</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for user in users.all %}
+                            <tr>
+                                <td>
+                                    {{ forloop.counter }}
+                                </td>
+                                <td>
+                                    {{ user.first_name }} {{ user.last_name }}
+                                </td>
+                                <td>
+                                    {{ user.num_documents }}
+                                </td>
+                                <td>
+                                    {{ user.date_joined }}
+                                </td>
+                                {% comment %} <td>
+                                    <a href="{{ user_document.file.url }}" title="Preview"
+                                        class="btn btn-info btn-sm"><i class="fa fa-search"></i></a>
+                                    <a href="{% url 'summarize' document_id=user_document.id sentences=3 %}"
+                                        title="Summarize" onclick="return confirm('Confirm?')"
+                                        class="btn btn-dark btn-sm"><i class="fa fa-list"></i></a>
+                                    <a href="{% url 'document_edit' document_id=user_document.id %}" title="Summarize"
+                                        class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
+                                    <a href="{% url 'document_delete' document_id=user_document.id %}" title="Delete"
+                                        onclick="return confirm('Sure to delete?')" class="btn btn-danger btn-sm"><i
+                                            class="fa fa-trash"></i></a>
+                                </td> {% endcomment %}
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- End Info box -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- Sales Chart and browser state-->
+<!-- ============================================================== -->
+<!-- {% include "common/datatable_options.html" with record_name="documents" specific_id="documents" record_count=campaigns.count  %} -->
+{% include "common/datatable_options.html" with record_name="users" specific_id="users_table" record_count=123  %}
+{% endblock %}

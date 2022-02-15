@@ -1,0 +1,26 @@
+[{
+	"model": "subscriptions.plan",
+	"pk": 1,
+	"fields": {
+		"title": "Monthly",
+		"monthly_summaries": 10,
+		"price": 10,
+		"stripe_id": "price_1JLOrCESDR3L2YaeIHxYtqE1"
+	}
+}, {
+	"model": "subscriptions.plan",
+	"pk": 2,
+	"fields": {
+		"title": "Yearly",
+		"monthly_summaries": 100,
+		"price": 100,
+		"stripe_id": "price_1JLOtCESDR3L2YaeYloM9xZz"
+	}
+}, {
+	"model": "subscriptions.setting",
+	"pk": 1,
+	"fields": {
+		"stripe_api_key": "sk_test_51HmTM7ESDR3L2YaeSyDN2EKIxrABTbEgQguI1uh5kdlAvqZ5IpYLiebqiYIB3ZHudJA9q4iSG2x3y7DBPA5Sqwbw00ctQh4mCK",
+		"publishable_key": "pk_test_51HmTM7ESDR3L2YaessO5uBmuU6Z66UaLNi8a1ppVo9j84Era8wNCxmTSpfBPSuZ1flZ3bQQ5zUfMEa6TtFB7LTph00QfTffNev"
+	}
+}]

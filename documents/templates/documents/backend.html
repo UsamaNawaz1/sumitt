@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+{% load static %}
+{% comment %}
+<!-- {% load staticfiles %} -->
+{% endcomment %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/images/favicon.png' %}">
+    <title>Sumitt</title>
+    {% comment %}
+    <link rel="stylesheet" href="{% static 'plugins/fontawesome/css/all.css' %}"> {% endcomment %}
+    {% comment %}
+    <link rel="stylesheet" type="text/css" href="{% static 'plugins/fontawesome/css/font-awesome.min.css' %}">
+    {% endcomment %}
+    <!-- This page CSS -->
+    <!-- This page CSS -->
+    <link href="{% static 'assets/node_modules/morrisjs/morris.css' %}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{% static 'assets/dist/css/style.min.css' %}" rel="stylesheet">
+    <!-- Dashboard 1 Page CSS -->
+
+    <script src="{% static 'assets/node_modules/jquery/jquery-3.2.1.min.js' %}"></script>
+
+    <link rel="stylesheet" type="text/css"
+        href="{% static 'assets/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css' %}">
+    <link rel="stylesheet" type="text/css"
+        href="{% static 'assets/node_modules/datatables.net-bs4/css/responsive.dataTables.min.css' %}">
+    <script src="{% static 'assets/node_modules/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'assets/node_modules/datatables.net-bs4/js/dataTables.responsive.min.js' %}"></script>
+
+
+    {% include "common/custom_css.html" %}
+    <style>
+        .left-sidebar {
+            background: white !important;
+        }
+
+        .scroll-sidebar {
+            border-top-right-radius: 30px;
+            background: #587298;
+        }
+
+        .sidebar-nav ul li a.active {
+            background-color: #bcd5ea;
+        }
+
+        #sidebarnav>li {
+            padding-left: 20px;
+        }
+
+        #sidebarnav>li>a>span,
+        #sidebarnav li a,
+        #sidebarnav li i {
+            color: white;
+        }
+
+        /* #sidebarnav>li.active>a>span {
+            color: black;
+        } */
+        #sidebarnav>li {
+            padding-left: 20px;
+            margin: 0;
+            padding-top: 30px;
+        }
+
+        .skin-purple-dark .topbar,
+        .topbar .top-navbar .navbar-header,
+        .navbar-collapse,
+        .navbar-header {
+            background: white;
+        }
+
+        .navbar-header span,
+        .navbar-nav i,
+        .navbar-nav span {
+            color: black;
+        }
+
+        .page-titles {
+            padding-left: 30px;
+        }
+
+        .sidebarnav {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body class="fixed-layout skin-purple-dark">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader__figure"></div>
+            <p class="loader__label">Sumitt</p>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        {% include "common/header.html" %}
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        {% include "common/sidebar.html" %}
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+
+
+                {% block content %}
+
+                {% endblock %}
+                {% comment %}
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Right sidebar -->
+                <!-- ============================================================== -->
+                {% include "common/right_sidebar.html" %}
+                {% endcomment %}
+                <!-- .right-sidebar -->
+
+                <!-- ============================================================== -->
+                <!-- End Right sidebar -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- footer -->
+        <!-- ============================================================== -->
+        <footer class="footer">
+            &copy; {% now "Y" %}
+            <a href="{% url 'home' %}" id="pixinventLink" target="_blank"
+                class="text-bold-800 primary darken-2">Sumitt</a>. All rights reserved.
+        </footer>
+        <!-- ============================================================== -->
+        <!-- End footer -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+
+    <!-- Bootstrap popper Core JavaScript -->
+    <script src="{% static 'assets/node_modules/popper/popper.min.js' %}"></script>
+    <script src="{% static 'assets/node_modules/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="{% static 'assets/dist/js/perfect-scrollbar.jquery.min.js' %}"></script>
+    <!--Wave Effects -->
+    <script src="{% static 'assets/dist/js/waves.js' %}"></script>
+    <!--Menu sidebar -->
+    <script src="{% static 'assets/dist/js/sidebarmenu.js' %}"></script>
+    <!--Custom JavaScript -->
+    <script src="{% static 'assets/dist/js/custom.min.js' %}"></script>
+    <!-- ============================================================== -->
+    <!-- This page plugins -->
+    <!-- ============================================================== -->
+    <!--Sky Icons JavaScript -->
+    <script src="{% static 'assets/node_modules/skycons/skycons.js' %}"></script>
+    <!--morris JavaScript -->
+    <script src="{% static 'assets/node_modules/raphael/raphael-min.js' %}"></script>
+    <script src="{% static 'assets/node_modules/morrisjs/morris.min.js' %}"></script>
+    <script src="{% static 'assets/node_modules/jquery-sparkline/jquery.sparkline.min.js' %}"></script>
+    <!-- Chart JS -->
+    {% comment %} <script src="{% static 'assets/dist/js/dashboard4.js' %}"></script> {% endcomment %}
+    <script src="{% static 'plugins/toastr/toastr.min.js' %}"></script>
+    {% include "common/custom_scripts.html" %}
+</body>
+
+</html>

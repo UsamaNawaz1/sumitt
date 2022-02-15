@@ -1,0 +1,75 @@
+{% load crispy_forms_tags %}
+{% include "common/flash.html" %}
+
+
+<form class="form-material m-t-40" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <!-- {{ document.as_table }} -->
+    <div class="form-group row">
+        <label class="control-label text-right col-md-3">Label</label>
+        <div class="col-md-6">
+            <input type="text" name="name" class="form-control" placeholder="Enter text" required value="{{name}}">
+            {% comment %} {{ document.name|as_crispy_field }} {% endcomment %}
+            <small class="form-control-feedback"> Give your document a name </small>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="control-label text-right col-md-3">Description</label>
+        <div class="col-md-6">
+            <textarea type="text" name="description" class="form-control" placeholder=""
+                rows="3">{{description}}</textarea>
+            <small class="form-control-feedback"> Add a description (optional) </small>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="control-label text-right col-md-3">Start Page</label>
+        <div class="col-md-6">
+            <input type="number" min="1", max="50" name="start_scan_page" class="form-control" 
+                value="{{start_scan_page}}">
+            <small class="form-control-feedback"> Page to start scanning from (optional) </small>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label text-right col-md-3">End Page</label>
+        <div class="col-md-6">
+            <input type="number" min="1", max="200" name="end_scan_page" class="form-control" 
+                value="{{end_scan_page}}">
+                <small class="form-control-feedback"> Page to end scan (optional) </small>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label text-right col-md-3">Maximum Sentences</label>
+        <div class="col-md-6">
+            <input type="number" min="1", max="50" name="max_sentences" class="form-control" required
+                value="{{max_sentences}}">
+            <small class="form-control-feedback"> Maximum number of Sentences you want in summary </small>
+        </div>
+    </div>
+
+
+    {% if no_upload %}
+    {% else %}
+    <div class="form-group row">
+        <label class="control-label text-right col-md-3">File</label>
+        <div class="col-md-8">
+            <input type="file" name="file" id="file" required class="">
+        </div>
+    </div>
+    {% endif %}
+
+    <hr>
+    <div class="form-actions">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-9">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6"> </div>
+        </div>
+    </div>
+</form>

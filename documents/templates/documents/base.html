@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% load static %}
+{% comment %} {% load staticfiles %} {% endcomment %}
+<html lang="zxx" class="no-js">
+
+<head>
+  <!-- Mobile Specific Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Favicon-->
+  <link rel="shortcut icon" href="{% static 'home/img/fav.png' %}">
+  <!-- Author Meta -->
+  <meta name="author" content="PIXINVENT">
+  <!-- Meta Description -->
+  <meta name="description" content="Summarizer Frontend">
+  <!-- Meta Keyword -->
+  <meta name="keywords" content="HTML,CSS,JavaScript,Summarizer,angularjs">
+  <!-- meta character set -->
+  <meta charset="UTF-8">
+  <!-- Site Title -->
+  <title>Sumitt</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,500,600" rel="stylesheet">
+  <!-- CSS ============================================= -->
+  <link rel="stylesheet" href="{% static 'home/css/font-awesome.min.css' %}">
+  <link rel="stylesheet" href="{% static 'home/css/bootstrap.css' %}">
+  <link rel="stylesheet" href="{% static 'home/css/main.css' %}">
+
+  <script src="{% static 'home/js/vendor/jquery-2.2.4.min.js' %}"></script>
+  <script src="{% static 'home/js/popper.min.js' %}"></script>
+  <script src="{% static 'home/js/vendor/bootstrap.min.js' %}"></script>
+  <script src="{% static 'home/js/vendor/scroll.js' %}"></script>
+  {% include "common/custom_css.html" %}
+</head>
+
+<body>
+  <div id="top"></div>
+  <!-- Start Header Area -->
+
+  <!-- End Header Area -->
+
+
+  {% block content %}
+
+  {% endblock %}
+
+  <!-- Footer Area -->
+  <footer>
+    <section class="footer" id="footer">
+      <div class="bg-black p-5 text-center">
+        <h2 class="white">
+          <span style="font-size: 14px; font-weight:100;" class="muted mr-2">Powered By</span> Summarizer</h2>
+      </div>
+    </section>
+  </footer>
+  <!-- End footer Area -->
+
+
+  <!-- Script Link Area -->
+
+  {% comment %} <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js' %}"></script>
+  {% endcomment %}
+
+  <!-- End Script Link Area -->
+
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+{% extends 'documents/backend.html' %}
+{% load static %}
+
+{% block title %}Documents{% endblock %}>
+{% block content %}
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h4 class="text-themecolor">Edit Document</h4>
+    </div>
+    <div class="col-md-7 align-self-center text-right">
+        <div class="d-flex justify-content-end align-items-center">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Home</a></li>
+                <li class="breadcrumb-item active">Documents</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================== -->
+<!-- End Bread crumb and right sidebar toggle -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- Info box -->
+<!-- ============================================================== -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <!-- <h4 class="card-title">Animated line inputs</h4> -->
+                <!-- <h6 class="card-subtitle">Just add <code>form-material</code> class to the form that's it.</h6> -->
+                {% include "common/document_form.html" with no_upload=True %}
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- End Info box -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- Sales Chart and browser state-->
+<!-- ============================================================== -->
+<!-- {% include "common/datatable_options.html" with record_name="documents" specific_id="documents" record_count=campaigns.count  %} -->
+{% include "common/datatable_options.html" with record_name="documents" specific_id="documents" record_count=123  %}
+{% endblock %}

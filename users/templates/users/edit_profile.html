@@ -1,0 +1,87 @@
+{% extends 'documents/backend.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Edit Profile{% endblock %}>
+
+{% block content %}
+
+
+<section id="horizontal-form-layouts">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="content-header">Edit Profile</div>
+		</div>
+	</div>
+	<div class="row">
+		{% comment %} {% include "common/flash.html" %} {% endcomment %}
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header">
+					<!-- <h4 class="card-title" id="horz-layout-basic">Project Info</h4>
+	                <p class="mb-0">This is the basic horizontal form with labels on left and form controls on right in one line. Edit <code>.form-horizontal</code> class to the form tag to have horizontal form styling. To define form sections use <code>form-section</code> class with any heading tags.</p> -->
+				</div>
+				<div class="card-body">
+					<div class="px-3">
+
+
+						<form method="POST" action="{% url 'edit_profile' %}" class="form form-horizontal" novalidate>
+							{% csrf_token %}
+
+							{% if form.errors %}
+							<div class="alert alert-warning alert-dismissable" role="alert">
+								<button class="close" data-dismiss="alert">
+									<small><sup>x</sup></small>
+								</button>
+								<p>Your Form Has Errors...</p>
+								{% for field in form %}
+								{% if field.errors  %}
+								{{ field.errors }}
+								{% endif %}
+
+								{% endfor %}
+
+							</div>
+
+
+							{% endif %}
+
+
+							{% comment %} {{ form.as_table }} {% endcomment %}
+
+							<div class="row">
+								<div class="col-6">
+									{{ form.username|as_crispy_field }}
+								</div>
+								<div class="col-6">
+									{{ form.email|as_crispy_field }}
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-6">
+									{{ form.first_name|as_crispy_field }}
+								</div>
+								<div class="col-6">
+									{{ form.last_name|as_crispy_field }}
+								</div>
+							</div>
+
+
+							{% comment %} {{ form|crispy }} {% endcomment %}
+
+
+							<input type="submit" value="Edit Profile" class="btn btn-secondary">
+						</form>
+						<br />
+						<p><small><a href="{% url 'change_password' %}">Click Here</a> To Change Your Password</small>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</section>
+
+
+
+{% endblock %}
