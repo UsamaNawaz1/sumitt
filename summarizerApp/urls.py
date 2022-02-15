@@ -24,8 +24,8 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     path("admin/", admin.site.urls, name='admin'),
     path('jsi18n/', JavaScriptCatalog.as_view(), name='javascript-catalog'),
-    path('', include('users.urls')),
     path('', include('documents.urls')),
+    path('', include('users.urls')),
     path('', include('subscriptions.urls')),
 ]
 
