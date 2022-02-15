@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-2c47c*^2(^a(gt4g*bc)apy%5d0*x496ejbg9a=*ybrc5ct4=5
 DEBUG = True
 
 # ALLOWED_HOSTS = ['sendbaek.com', '18.219.4.181', 'www.sendbaek.com','localhost']
-ALLOWED_HOSTS = ['localhost','https://sumittca.herokuapp.com', '127.0.0.1', '147.182.174.58', 'sumitt.ca', 'www.sumitt.ca']
+ALLOWED_HOSTS = ['localhost','https://sumittca.herokuapp.com','198.199.88.157', '127.0.0.1', '147.182.174.58', 'sumitt.ca', 'www.sumitt.ca']
 
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
