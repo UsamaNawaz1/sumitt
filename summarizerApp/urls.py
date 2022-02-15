@@ -22,7 +22,7 @@ from django.views.i18n import JavaScriptCatalog
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
-    path('hello/', include('documents.urls')),
+    path('', include('documents.urls')),
     path("admin/", admin.site.urls, name='admin'),
     path('jsi18n/', JavaScriptCatalog.as_view(), name='javascript-catalog'),
     

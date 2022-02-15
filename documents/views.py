@@ -27,7 +27,8 @@ logger = logging.getLogger(__name__)
 
 
 def home(request):
-    plans = Plan.objects
+    print('hello')
+    plans = Plan.objects.all()
     plan1 = get_object_or_404(Plan, pk=1)
     plan2 = get_object_or_404(Plan, pk=2)
 
